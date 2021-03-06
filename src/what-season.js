@@ -1,8 +1,12 @@
 const CustomError = require("../extensions/custom-error");
 
 module.exports = function getSeason(date) {
+  if (isNaN(date)) {
+    // throw 'FAIL'
+  }
   if(Object.prototype.toString.call(date) !== "[object Date]") {
-    throw new CustomError('Unable to determine the time of year!');
+    // throw 'Unable to determine the time of year!';
+    throw 'THROWN';
   } else {
   let mounth = date.getMonth();
   if (mounth >= 0 && mounth <= 1 || mounth === 11) {
